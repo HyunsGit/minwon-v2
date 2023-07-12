@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Values.service.name }}
+  namespace: mgt
+spec:
+  ports:
+    - port: {{ .Values.deployment.containerPort }}
+#      protocol: TCP
+      targetPort: {{ .Values.deployment.containerName }}
+  selector:
+    app: {{ .Values.deployment.app }}
+#  sessionAffinity: None
+#  type: LoadBalancer

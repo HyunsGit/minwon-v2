@@ -434,7 +434,7 @@ spec:
               cpu: 100m
               memory: 90Mi
       tolerations:
-      - key: "middleware"
+      - key: "mgt"
         operator: "Equal"
         value: "present"
         effect: "NoSchedule"
@@ -671,7 +671,7 @@ spec:
           securityContext:
             allowPrivilegeEscalation: false
       tolerations:
-      - key: "middleware"
+      - key: "mgt"
         operator: "Equal"
         value: "present"
         effect: "NoSchedule"      
@@ -733,7 +733,7 @@ spec:
           securityContext:
             allowPrivilegeEscalation: false
       tolerations:
-      - key: "middleware"
+      - key: "mgt"
         operator: "Equal"
         value: "present"
         effect: "NoSchedule" 

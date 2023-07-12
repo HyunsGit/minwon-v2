@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: {{ .Values.pv.name }}
+  namespace: mgt
+spec:
+  accessModes:
+    - ReadWriteOnce
+  capacity:
+    storage: {{ .Values.pv.storage }}
+  volumeMode: {{ .Values.pv.volumeMode }}
+  storageClassName: {{ .Values.pv.storageClassName }}
+  claimRef:
+    name: {{ .Values.pv.classRefName }}
+    namespace: mgt
+  nfs:
+    server: {{ .Values.pv.nfs.server }}
+    path: {{ .Values.pv.nfs.server }}

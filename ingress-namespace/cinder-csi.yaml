@@ -337,19 +337,6 @@ spec:
               readOnly: true
           resources:
             {}
-      tolerations:
-      - key: "mgt"
-        operator: "Equal"
-        value: "present"
-        effect: "NoSchedule" 
-      - key: "ingress"
-        operator: "Equal"
-        value: "present"
-        effect: "NoSchedule"  
-      - key: "dev"
-        operator: "Equal"
-        value: "present"
-        effect: "NoSchedule"   
       volumes:
         - name: socket-dir
           hostPath:
@@ -382,8 +369,15 @@ spec:
         {}
       nodeSelector:
         {}
-#      tolerations:
-#        - operator: Exists
+      tolerations:
+      - key: "ingress"
+        operator: "Equal"
+        value: "present"
+        effect: "NoSchedule"
+      - key: "dev"
+        operator: "Equal"
+        value: "present"
+        effect: "NoSchedule"
 ---
 # Source: openstack-cinder-csi/templates/controllerplugin-deployment.yaml
 kind: Deployment
@@ -543,11 +537,6 @@ spec:
               readOnly: true
           resources:
             {}
-      tolerations:
-      - key: "mgt"
-        operator: "Equal"
-        value: "present"
-        effect: "NoSchedule"  
       volumes:
         - name: socket-dir
           emptyDir:
@@ -562,8 +551,11 @@ spec:
         {}
       nodeSelector:
         {}
-#      tolerations:
-#        []
+      tolerations:
+      - key: "ingress"
+        operator: "Equal"
+        value: "present"
+        effect: "NoSchedule"
 ---
 # Source: openstack-cinder-csi/templates/cinder-csi-driver.yaml
 apiVersion: storage.k8s.io/v1

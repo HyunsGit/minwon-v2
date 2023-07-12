@@ -1,27 +1,27 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: development-phase-app
-  namespace: development
+  name: dev-phase-app
+  namespace: dev
   labels:
-    app: development-phase-app
+    app: dev-phase-app
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: development-phase-app
+      app: dev-phase-app
   template:
     metadata:
       labels:
-        app: development-phase-app
+        app: dev-phase-app
     spec:
       containers:
-      - name: development-phase-app
+      - name: dev-phase-app
         image: dktechin.kr-central-1.kcr.dev/hans-k8s/nginx-last:v1
         ports:
         - containerPort: 9200
       tolerations:
-      - key: "development"
+      - key: "dev"
         operator: "Equal"
         value: "present"
         effect: "NoSchedule"

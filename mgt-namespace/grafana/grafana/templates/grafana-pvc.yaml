@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: {{ .Values.pvc.name }}
+  namespace: mgt
+spec:
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: {{ .Values.pv.storageClassName }}
+  resources:
+    requests:
+      storage: {{ .Values.pv.storage }}

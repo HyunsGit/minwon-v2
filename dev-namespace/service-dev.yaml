@@ -1,11 +1,11 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: development-phase-app-svc
-  namespace: development
+  name: dev-phase-app-svc
+  namespace: dev
 spec:
   selector:
-    app: development-phase-app
+    app: dev-phase-app
   type: ClusterIP
   ports:
   - name: http
